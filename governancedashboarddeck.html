@@ -1,0 +1,52 @@
+<html>
+<body>
+<p style="text-align: center;"><font size=20 color="#3366ff"><b>Global Governance Call</b></font></p>
+<p style="text-align: center;"><font size=6 color="#808080">Travel Operations Support</font></p>
+<p style="text-align: center;"><font size=4 color="#808080" id="date"></font></p>
+
+<p style="text-align: center;"><span style="color: #3369E8"><b>___________________</b></span><span style="color: #D50F25"><b>___________________</b></span><span style="color: #EEB211"><b>___________________</b><span style="color: #009925"><b>___________________</b></span></span></p>
+<p style="text-align: center;"><font size=4 color="#808080" id="week"></font></p>
+<p style="text-align: center;"><font size=4 color="#808080" id="span"></font></p>
+
+<script>
+    var d = new Date();
+    var weekday = new Array(7);
+    weekday[0] = "Sunday";
+    weekday[1] = "Monday";
+    weekday[2] = "Tuesday";
+    weekday[3] = "Wednesday";
+    weekday[4] = "Thursday";
+    weekday[5] = "Friday";
+    weekday[6] = "Saturday";
+    var fullmonth = new Array(12);
+    fullmonth[0] = "January"
+    fullmonth[1] = "February"
+    fullmonth[2] = "March"
+    fullmonth[3] = "April"
+    fullmonth[4] = "May"
+    fullmonth[5] = "June"
+    fullmonth[6] = "July"
+    fullmonth[7] = "August"
+    fullmonth[8] = "September"
+    fullmonth[9] = "October"
+    fullmonth[10] = "November"
+    fullmonth[11] = "December"
+    var day = weekday[d.getDay()];
+    var date = d.getDate();
+    var year = d.getFullYear();
+    var today = d.getDate();
+    var past = d.getDay();
+    var from = today - past;
+    var future = 6 - past;
+    var to = today + future;
+    var whatmonth = fullmonth[d.getMonth()];
+    var onejan = new Date(d.getFullYear(), 0, 1);
+    var weekNumber = Math.ceil((((d - onejan)/86400000)+onejan.getDay()+1)/7 );
+
+
+    document.getElementById("date").innerHTML = day + "  -  " + whatmonth + " " + date + ", " + year;
+    document.getElementById("week").innerHTML = "Week " + weekNumber;
+    document.getElementById("span").innerHTML = whatmonth + " " + from + " to " + to;
+</script>
+</body>
+</html>
